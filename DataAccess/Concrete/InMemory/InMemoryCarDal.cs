@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks.Dataflow;
 using DataAccess.Abstract;
 using Entities;
@@ -14,6 +15,7 @@ namespace DataAccess.Concrete.InMemory
     {
         private List<Car> _cars;
         private List<Color> _colors;
+       
 
         public InMemoryCarDal()
         {
@@ -21,41 +23,51 @@ namespace DataAccess.Concrete.InMemory
             {
                 new Car
                 {
-                    Id = "1", ModelYear = DateTime.Now.Year, Description = "this is a description", DailyPrice = 50,
-                    BrandId = "2", ColorId = "5"
+                    Id = 1, ModelYear = DateTime.Now.Year, Description = "this is a description", DailyPrice = 50,
+                    BrandId = 2, ColorId = 5
                 },
                 new Car
                 {
-                    Id = "3", ModelYear = DateTime.Now.Year, Description = "this is not a description",
-                    DailyPrice = 150, BrandId = "4", ColorId = "7"
+                    Id = 3, ModelYear = DateTime.Now.Year, Description = "this is not a description",
+                    DailyPrice = 150, BrandId = 4, ColorId = 7
                 },
                 new Car
                 {
-                    Id = "2", ModelYear = DateTime.Now.Year, Description = "this is a other description",
-                    DailyPrice = 250, BrandId = "3", ColorId = "6"
+                    Id = 2, ModelYear = DateTime.Now.Year, Description = "this is a other description",
+                    DailyPrice = 250, BrandId = 3, ColorId = 6
                 },
                 new Car
                 {
-                    Id = "4", ModelYear = DateTime.Now.Year, Description = "this is different description",
-                    DailyPrice = 40, BrandId = "5", ColorId = "8"
+                    Id = 4, ModelYear = DateTime.Now.Year, Description = "this is different description",
+                    DailyPrice = 40, BrandId = 5, ColorId = 8
                 }
             };
 
             _colors = new List<Color>
             {
-                new Color {Id = "5", ColorName = "Mavi"},
-                new Color {Id = "8", ColorName = "Kırmızı"},
-                new Color {Id = "6", ColorName = "Beyaz"},
-                new Color {Id = "7", ColorName = "Siyah"}
+                new Color {Id = 5, ColorName = "Mavi"},
+                new Color {Id = 8, ColorName = "Kırmızı"},
+                new Color {Id = 6, ColorName = "Beyaz"},
+                new Color {Id = 7, ColorName = "Siyah"}
             };
         }
-
-        public List<Car> GetAll()
+        
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
         }
 
-        public List<Car> GetById(string id)
+        public Car Get(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetAllById(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetById(int id)
         {
             return _cars.Where(c => c.Id == id).ToList();
         }
@@ -88,7 +100,7 @@ namespace DataAccess.Concrete.InMemory
             Console.WriteLine(result + "\n");
 
             //Find
-            var result2 = _cars.Find(car => car.Id == "3");
+            var result2 = _cars.Find(car => car.Id == 3);
             Console.WriteLine(result2 + "\n");
 
             //FindAll
@@ -138,7 +150,7 @@ namespace DataAccess.Concrete.InMemory
 
     public class CarDto
     {
-        public string CarId { get; set; }
+        public int CarId { get; set; }
         public string ColorName { get; set; }
         public string CarDescription { get; set; }
 
