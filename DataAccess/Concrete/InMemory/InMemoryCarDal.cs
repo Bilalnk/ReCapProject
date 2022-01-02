@@ -6,13 +6,14 @@ using System.Threading.Tasks.Dataflow;
 using DataAccess.Abstract;
 using Entities;
 using Entities.Concrete;
+using Color = Entities.Concrete.Color;
 
 namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryCarDal : ICarDal
     {
         private List<Car> _cars;
-        private List<CarColor> _colors;
+        private List<Color> _colors;
 
         public InMemoryCarDal()
         {
@@ -40,12 +41,12 @@ namespace DataAccess.Concrete.InMemory
                 }
             };
 
-            _colors = new List<CarColor>
+            _colors = new List<Color>
             {
-                new CarColor {Id = "5", ColorName = "Mavi"},
-                new CarColor {Id = "8", ColorName = "Kırmızı"},
-                new CarColor {Id = "6", ColorName = "Beyaz"},
-                new CarColor {Id = "7", ColorName = "Siyah"}
+                new Color {Id = "5", ColorName = "Mavi"},
+                new Color {Id = "8", ColorName = "Kırmızı"},
+                new Color {Id = "6", ColorName = "Beyaz"},
+                new Color {Id = "7", ColorName = "Siyah"}
             };
         }
 
