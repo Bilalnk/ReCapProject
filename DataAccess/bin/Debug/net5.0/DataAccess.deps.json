@@ -1034,6 +1034,9 @@
         }
       },
       "Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0"
+        },
         "runtime": {
           "Core.dll": {}
         }
