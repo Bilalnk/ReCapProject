@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess.Concrete.EntityFramework
 {
     //Context: Dbdeki tablolarla classların bağlanması
-    public class NorthwindContext : DbContext
+    public class ReCapContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
