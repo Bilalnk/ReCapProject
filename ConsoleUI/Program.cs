@@ -8,12 +8,26 @@ namespace ConsoleUI
     {
         private static void Main(string[] args)
         {
+            /*
             CarTest();
             BrandTest();
+            */
+            CarDtoTest();
 
             // InMemoryCarDal dal = new InMemoryCarDal();
             // Console.WriteLine("\n -----LinkTests");
             // dal.LinqSamples();
+        }
+
+        private static void CarDtoTest()
+        {
+            var manager = new CarManager(new EfCarDal());
+
+            foreach (var detail in manager.GetCarDetails())
+            {
+                Console.WriteLine(detail.CarId + " " + detail.Color + " " + detail.BrandName + " " +
+                                  detail.Description);
+            }
         }
 
         private static void BrandTest()

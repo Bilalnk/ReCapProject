@@ -35,7 +35,7 @@ namespace Core.DataAccess.EntityFramework
         {
             using (var context = new TContext())
             {
-                var addedEntity = context.Entry(entity);
+                var addedEntity = context.Entry(entity); //referans yakalama(frameworke özel)
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }

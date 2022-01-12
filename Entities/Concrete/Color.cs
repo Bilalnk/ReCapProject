@@ -6,11 +6,11 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
 
-        public string ColorName { get; set; }
+        public string Name { get; set; }
 
         public override string ToString()
         {
-            return Id + " " + ColorName;
+            return Id + " " + Name;
         }
     }
 }

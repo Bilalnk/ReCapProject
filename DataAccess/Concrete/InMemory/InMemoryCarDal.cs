@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks.Dataflow;
 using DataAccess.Abstract;
-using Entities;
 using Entities.Concrete;
-using Color = Entities.Concrete.Color;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -15,7 +12,7 @@ namespace DataAccess.Concrete.InMemory
     {
         private List<Car> _cars;
         private List<Color> _colors;
-       
+
 
         public InMemoryCarDal()
         {
@@ -45,13 +42,13 @@ namespace DataAccess.Concrete.InMemory
 
             _colors = new List<Color>
             {
-                new Color {Id = 5, ColorName = "Mavi"},
-                new Color {Id = 8, ColorName = "Kırmızı"},
-                new Color {Id = 6, ColorName = "Beyaz"},
-                new Color {Id = 7, ColorName = "Siyah"}
+                new Color {Id = 5, Name = "Mavi"},
+                new Color {Id = 8, Name = "Kırmızı"},
+                new Color {Id = 6, Name = "Beyaz"},
+                new Color {Id = 7, Name = "Siyah"}
             };
         }
-        
+
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
@@ -63,6 +60,11 @@ namespace DataAccess.Concrete.InMemory
         }
 
         public List<Car> GetAllById(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
         }
@@ -138,8 +140,8 @@ namespace DataAccess.Concrete.InMemory
             var result7 = from c in _cars
                 join col in _colors on c.ColorId equals col.Id
                 where c.Description.Contains("is")
-                orderby c.Id descending 
-                select new CarDto {CarId = c.Id, CarDescription = c.Description, ColorName = col.ColorName};
+                orderby c.Id descending
+                select new CarDto {CarId = c.Id, CarDescription = c.Description, ColorName = col.Name};
 
             foreach (var car in result7)
             {
@@ -156,7 +158,7 @@ namespace DataAccess.Concrete.InMemory
 
         public override string ToString()
         {
-            return CarId +" "+ ColorName +" "+ CarDescription;
+            return CarId + " " + ColorName + " " + CarDescription;
         }
     }
 }
