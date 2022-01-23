@@ -8,11 +8,9 @@ namespace ConsoleUI
     {
         private static void Main(string[] args)
         {
-            /*
             CarTest();
-            BrandTest();
-            */
-            CarDtoTest();
+            // BrandTest();
+            // CarDtoTest();
 
             // InMemoryCarDal dal = new InMemoryCarDal();
             // Console.WriteLine("\n -----LinkTests");
@@ -23,7 +21,7 @@ namespace ConsoleUI
         {
             var manager = new CarManager(new EfCarDal());
 
-            foreach (var detail in manager.GetCarDetails())
+            foreach (var detail in manager.GetCarDetails().Data)
             {
                 Console.WriteLine(detail.CarId + " " + detail.Color + " " + detail.BrandName + " " +
                                   detail.Description);
@@ -47,9 +45,24 @@ namespace ConsoleUI
         {
             var carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetAll())
+            // foreach (var car in carManager.GetAll())
+            // {
+            //     Console.WriteLine(car);
+            // }
+
+            if (carManager.GetByModelYear(2202).Success)
             {
-                Console.WriteLine(car);
+                var cars = carManager.GetByModelYear(2202).Data;
+
+                foreach (var car in cars)
+                {
+                    Console.WriteLine(car);
+                }
+            }
+            else
+            {
+                Console.WriteLine(carManager.GetByModelYear(2202).Success + " " +
+                                  carManager.GetByModelYear(2202).Message);
             }
         }
     }
