@@ -9,7 +9,7 @@ namespace ConsoleUI
         private static void Main(string[] args)
         {
             CarTest();
-            // BrandTest();
+            BrandTest();
             // CarDtoTest();
 
             // InMemoryCarDal dal = new InMemoryCarDal();
@@ -32,7 +32,7 @@ namespace ConsoleUI
         {
             var manager = new BrandManager(new EfBrandDal());
 
-            foreach (var brand in manager.GetAll())
+            foreach (var brand in manager.GetAll().Data)
             {
                 Console.WriteLine(brand);
             }
