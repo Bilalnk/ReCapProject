@@ -32,13 +32,19 @@ namespace ConsoleUI
         {
             var manager = new BrandManager(new EfBrandDal());
 
+            Console.WriteLine("All Data");
             foreach (var brand in manager.GetAll().Data)
             {
                 Console.WriteLine(brand);
             }
 
+            Console.WriteLine("Get brand as Id");
             var getBrandAsId = manager.Get(2);
             Console.WriteLine(getBrandAsId);
+
+            Console.WriteLine("");
+            var getBrandWithName = manager.GetByName("Megane");
+            Console.WriteLine(getBrandWithName);
         }
 
         private static void CarTest()
