@@ -52,7 +52,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-
         [HttpGet(nameof(GetAllByBrandId))]
         public IActionResult GetAllByBrandId(int brandId)
         {

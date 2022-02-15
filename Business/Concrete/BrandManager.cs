@@ -51,7 +51,7 @@ namespace Business.Concrete
             }
 
             _brandDal.Add(brand);
-            return new SuccessResult(Messages.BrandAdded);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult DeleteById(int id)
