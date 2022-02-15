@@ -21,13 +21,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
-        public IDataResult<Brand> GetById(int categoryId)
+        public IDataResult<Brand> GetById(int id)
         {
-            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.id == categoryId));
+            if (id < 1) return new ErrorDataResult<Brand>(Messages.InvalidParameter);
+
+            var result = _brandDal.Get(c => c.id == id);
+
+            if (result == null) return new ErrorDataResult<Brand>(Messages.NotFound);
+
+            return new SuccessDataResult<Brand>(result);
         }
 
         public IDataResult<Brand> GetByName(string name)
         {
+            if (!isBrandExist(default, name)) return new ErrorDataResult<Brand>(Messages.NotFound);
             return new SuccessDataResult<Brand>(_brandDal.Get(brand => brand.Name.Equals(name)));
         }
 
@@ -35,22 +42,34 @@ namespace Business.Concrete
         {
             if (brand.Name.Equals(null) || brand.Name.Equals("") || brand.Name.Equals(" "))
             {
-                return new ErrorResult(Constants.Messages.BrandNameNotNull);
+                return new ErrorResult(Messages.BrandNameNotNull);
+            }
+
+            if (isBrandExist(default, brand.Name))
+            {
+                return new ErrorResult(Messages.ExistData);
             }
 
             _brandDal.Add(brand);
-            return new SuccessResult(Messages.BrandAdded);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult DeleteById(int id)
         {
             Brand brand = _brandDal.Get(brand1 => brand1.id == id);
+            if (brand == null) return new ErrorResult(Messages.NotFound);
+
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.Deleted);
         }
 
         public IResult Update(Brand brand)
         {
+            if (!isBrandExist(brand.id))
+            {
+                return new ErrorResult(Messages.NotFound);
+            }
+
             _brandDal.Update(brand);
             return new SuccessResult(Messages.Updated + " " + brand.id + " " + brand.Name);
         }
@@ -58,6 +77,15 @@ namespace Business.Concrete
         public IDataResult<Brand> Get(int id)
         {
             return new SuccessDataResult<Brand>(_brandDal.Get(brand => brand.id == id));
+        }
+
+        public bool isBrandExist(int id = -1, string name = null)
+        {
+            Brand existBrand = null;
+            if (name != null) existBrand = _brandDal.Get(brand1 => brand1.Name == name);
+            else if (id != -1) existBrand = _brandDal.Get(brand1 => brand1.id == id);
+
+            return existBrand != null;
         }
     }
 }
