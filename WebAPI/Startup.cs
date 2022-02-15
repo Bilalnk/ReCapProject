@@ -32,6 +32,9 @@ namespace WebAPI
             services.AddSingleton<IColorService, ColorManager>();
             services.AddSingleton<IColorDal, EfColorDal>();
 
+            services.AddSingleton<IUserService, UserManager>();
+            services.AddSingleton<IUserDal, EfUserDal>();
+
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebAPI", Version = "v1"}); });
         }
