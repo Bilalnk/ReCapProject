@@ -36,10 +36,10 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GetByModelYear(int year)
         {
             var result = _carDal.GetAll(car => car.ModelYear == year);
-            // Console.WriteLine(result);
-            if (result.Count == 0)
+
+            if (result == null)
             {
-                return new ErrorDataResult<List<Car>>("Yok", null);
+                return new ErrorDataResult<List<Car>>(Messages.NotFound);
             }
 
             return new SuccessDataResult<List<Car>>(result);
@@ -64,6 +64,29 @@ namespace Business.Concrete
         public IDataResult<Car> GetById(int carId)
         {
             return new SuccessDataResult<Car>(_carDal.Get(car => car.Id == carId));
+        }
+
+        public IResult DeleteById(int id)
+        {
+            var res = isCarExist(id);
+            if (res == null) return new ErrorResult(Messages.NotFound);
+            _carDal.Delete(res);
+            return new SuccessResult(Messages.Deleted);
+        }
+
+        public IResult Update(Car car)
+        {
+            var res = isCarExist(car.Id);
+            if (res == null) return new ErrorResult(Messages.NotFound);
+
+            _carDal.Update(car);
+            return new SuccessResult(Messages.Updated);
+        }
+
+        private Car isCarExist(int id)
+        {
+            var result = _carDal.Get(car => car.Id == id);
+            return result;
         }
     }
 }

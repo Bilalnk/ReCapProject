@@ -51,5 +51,71 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+
+        [HttpGet(nameof(GetAllByBrandId))]
+        public IActionResult GetAllByBrandId(int brandId)
+        {
+            var result = _service.GetAllByBrandId(brandId);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet(nameof(GetByModelYear))]
+        public IActionResult GetByModelYear(int year)
+        {
+            var result = _service.GetByModelYear(year);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet(nameof(GetCarDetails))]
+        public IActionResult GetCarDetails()
+        {
+            var result = _service.GetCarDetails();
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpDelete(nameof(DeleteById))]
+        public IActionResult DeleteById(int id)
+        {
+            var result = _service.DeleteById(id);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPut(nameof(Update))]
+        public IActionResult Update(Car car)
+        {
+            var result = _service.Update(car);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
     }
 }
