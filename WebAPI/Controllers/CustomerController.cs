@@ -6,35 +6,43 @@ namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private IUserService _userService;
+        private ICustomerService _customerService;
 
-        public UsersController(IUserService userService)
+        public CustomerController(ICustomerService customerService)
         {
-            _userService = userService;
-        }
-
-        [HttpPost(nameof(Add))]
-        public IActionResult Add(User user)
-        {
-            var result = _userService.Add(user);
-            if (result.Success) return Ok(result);
-            return BadRequest(result);
+            _customerService = customerService;
         }
 
         [HttpGet(nameof(GetAll))]
         public IActionResult GetAll()
         {
-            var result = _userService.GetAll();
-            if (result.Success) return Ok(result);
+            var result = _customerService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost(nameof(Add))]
+        public IActionResult Add(Customer customer)
+        {
+            var result = _customerService.Add(customer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
             return BadRequest(result);
         }
 
         [HttpDelete(nameof(DeleteById))]
         public IActionResult DeleteById(int id)
         {
-            var result = _userService.DeleteById(id);
+            var result = _customerService.DeleteById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -44,9 +52,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut(nameof(Update))]
-        public IActionResult Update(User user)
+        public IActionResult Update(Customer customer)
         {
-            var result = _userService.Update(user);
+            var result = _customerService.Update(customer);
             if (result.Success)
             {
                 return Ok(result);
@@ -58,7 +66,7 @@ namespace WebAPI.Controllers
         [HttpGet(nameof(GetById))]
         public IActionResult GetById(int id)
         {
-            var result = _userService.GetById(id);
+            var result = _customerService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);

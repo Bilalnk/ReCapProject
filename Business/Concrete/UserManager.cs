@@ -24,6 +24,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(result);
         }
 
+        public IDataResult<User> GetById(int id)
+        {
+            var result = _userDal.Get(user => user.Id == id);
+            if (result == null) return new SuccessDataResult<User>(Messages.NoData);
+            return new SuccessDataResult<User>(result);
+        }
+
         public IResult Add(User user)
         {
             if (FieldsChecker.checker(user))
@@ -36,6 +43,23 @@ namespace Business.Concrete
             }
 
             return new SuccessResult(Messages.Added);
+        }
+
+        public IResult DeleteById(int id)
+        {
+            var result = _userDal.Get(user => user.Id == id);
+            if (result == null) return new SuccessDataResult<User>(Messages.NoData);
+            _userDal.Delete(result);
+            return new SuccessDataResult<User>(Messages.Deleted + " : " + result.Id);
+        }
+
+        public IResult Update(User user)
+        {
+            var result = _userDal.Get(u => u.Id == user.Id);
+            if (result == null) return new SuccessDataResult<User>(Messages.NoData);
+            if (!FieldsChecker.checker(user)) return new ErrorResult(Messages.NotInProperFormat);
+            _userDal.Update(user);
+            return new SuccessDataResult<User>(Messages.Updated);
         }
 
         private User IsUserExist(int id)
