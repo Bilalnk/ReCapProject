@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gMobciNj6t9Ky6e4k8EFBNbzD8MF2zqXxlriJ/YUazQGCo5PbSi3PklmLVvKifkw28Lz6yHA9XWEkTuzT4mnGg==",
+  "dgSpecHash": "8hvj+ucYKXjR/hv+afkUpCFXMVMfi0ugFyzBuzECiSfWJVNihCj5fC6jj2PJveiUAo28STmOD3J+UXw70lv/Tw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nadbi\\RiderProjects\\ReCapProject\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

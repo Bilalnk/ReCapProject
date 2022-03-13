@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3L2ithii2FU4ZZrBUNgU9F5o+rTJAYLlZ66XQHczkbLqBGFl6JYTpudL+c5ieyWuBkX+ZSWfoPR2YCzcpspTtQ==",
+  "dgSpecHash": "iCx0NKMF8uat+kg+V9g0UIEJJXtcbRf1o/g9AN9MikrpR48Li0cj22hfpYPneeVvl5unWjAvtSfRXm1tKeiFSw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nadbi\\RiderProjects\\ReCapProject\\Business\\Business.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
