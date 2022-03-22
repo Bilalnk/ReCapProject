@@ -140,3 +140,6 @@ C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\DataAccess.pdb
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Entities.pdb
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
