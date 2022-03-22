@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,6 +23,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IDataResult<Brand> GetById(int id)
         {
             if (id < 1) return new ErrorDataResult<Brand>(Messages.InvalidParameter);
@@ -38,12 +41,13 @@ namespace Business.Concrete
             return new SuccessDataResult<Brand>(_brandDal.Get(brand => brand.Name.Equals(name)));
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
-            if (brand.Name.Equals(null) || brand.Name.Equals("") || brand.Name.Equals(" "))
-            {
-                return new ErrorResult(Messages.BrandNameNotNull);
-            }
+            //if (brand.Name.Equals(null) || brand.Name.Equals("") || brand.Name.Equals(" "))
+            //{
+            //    return new ErrorResult(Messages.BrandNameNotNull);
+            //}
 
             if (isBrandExist(default, brand.Name))
             {
