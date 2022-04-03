@@ -16,8 +16,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(brand => brand.Name).NotEmpty();
             RuleFor(brand => brand.Name).NotNull();
             RuleFor(brand => brand.Name).NotEqual(" ");
-
-            RuleFor(brand => brand.id).GreaterThan(0);
         }
     }
 }

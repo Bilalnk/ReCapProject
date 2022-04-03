@@ -31,10 +31,8 @@ namespace Business.Concrete
                 _customerDal.Add(customer);
                 return new SuccessResult(Messages.Added);
             }
-            else
-            {
-                return new ErrorResult(Messages.InvalidParameter);
-            }
+
+            return new ErrorResult(Messages.InvalidParameter);
         }
 
         public IResult DeleteById(int id)

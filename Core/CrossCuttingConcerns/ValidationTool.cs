@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace Core.CrossCuttingConcerns
 {
-    public class ValidationTool
+    public static class ValidationTool
     {
         public static void Validate(IValidator validator, object entity)
         {

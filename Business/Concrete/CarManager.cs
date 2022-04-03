@@ -60,7 +60,13 @@ namespace Business.Concrete
 
         public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(car => car.Id == carId));
+            var result = _carDal.Get(car => car.Id == carId);
+            if (result == null)
+            {
+                return new ErrorDataResult<Car>(Messages.Car + " " + Messages.NotFound);
+            }
+
+            return new SuccessDataResult<Car>(result);
         }
 
         public IResult DeleteById(int id)
