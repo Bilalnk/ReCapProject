@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,6 +24,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IDataResult<Brand> GetById(int id)
         {
             if (id < 1) return new ErrorDataResult<Brand>(Messages.InvalidParameter);
@@ -34,20 +38,22 @@ namespace Business.Concrete
 
         public IDataResult<Brand> GetByName(string name)
         {
-            if (!isBrandExist(default, name)) return new ErrorDataResult<Brand>(Messages.NotFound);
+            IResult result = BusinessRules.Run(isBrandExist(default, name));
+            if (!result.Success)
+            {
+                return new ErrorDataResult<Brand>(result.Message);
+            }
+
             return new SuccessDataResult<Brand>(_brandDal.Get(brand => brand.Name.Equals(name)));
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
-            if (brand.Name.Equals(null) || brand.Name.Equals("") || brand.Name.Equals(" "))
+            IResult result = BusinessRules.Run(isBrandExist(default, brand.Name));
+            if (!result.Success)
             {
-                return new ErrorResult(Messages.BrandNameNotNull);
-            }
-
-            if (isBrandExist(default, brand.Name))
-            {
-                return new ErrorResult(Messages.ExistData);
+                return result;
             }
 
             _brandDal.Add(brand);
@@ -65,9 +71,10 @@ namespace Business.Concrete
 
         public IResult Update(Brand brand)
         {
-            if (!isBrandExist(brand.id))
+            IResult result = BusinessRules.Run(isBrandExist(default, brand.Name));
+            if (!result.Success)
             {
-                return new ErrorResult(Messages.NotFound);
+                return result;
             }
 
             _brandDal.Update(brand);
@@ -79,13 +86,13 @@ namespace Business.Concrete
             return new SuccessDataResult<Brand>(_brandDal.Get(brand => brand.id == id));
         }
 
-        public bool isBrandExist(int id = -1, string name = null)
+        public IResult isBrandExist(int id = -1, string name = null)
         {
             Brand existBrand = null;
             if (name != null) existBrand = _brandDal.Get(brand1 => brand1.Name == name);
             else if (id != -1) existBrand = _brandDal.Get(brand1 => brand1.id == id);
 
-            return existBrand != null;
+            return existBrand != null ? new SuccessResult() : new ErrorResult(Messages.NotFound);
         }
     }
 }

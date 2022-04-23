@@ -31,10 +31,8 @@ namespace Business.Concrete
                 _customerDal.Add(customer);
                 return new SuccessResult(Messages.Added);
             }
-            else
-            {
-                return new ErrorResult(Messages.InvalidParameter);
-            }
+
+            return new ErrorResult(Messages.InvalidParameter);
         }
 
         public IResult DeleteById(int id)
@@ -47,7 +45,7 @@ namespace Business.Concrete
 
         public IResult Update(Customer customer)
         {
-            var result = _customerDal.Get(u => u.UserId == customer.UserId);
+            var result = _customerDal.Get(u => u.Id == customer.Id);
             if (result == null) return new SuccessDataResult<User>(Messages.NoData);
             _customerDal.Update(customer);
             return new SuccessDataResult<User>(Messages.Updated);

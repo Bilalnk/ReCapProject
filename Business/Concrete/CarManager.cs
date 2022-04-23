@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,10 +21,10 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 21)
-            {
-                return new ErrorDataResult<List<Car>>("Bakımda ");
-            }
+            //if (DateTime.Now.Hour == 21)
+            //{
+            //    return new ErrorDataResult<List<Car>>("Bakımda ");
+            //}
 
             return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
@@ -50,20 +51,22 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.Description.Length < 5)
-            {
-                return new ErrorResult(Messages.ShortDescription);
-            }
-
             _carDal.Add(car);
             return new SuccessResult(Messages.Added);
         }
 
         public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(car => car.Id == carId));
+            var result = _carDal.Get(car => car.Id == carId);
+            if (result == null)
+            {
+                return new ErrorDataResult<Car>(Messages.Car + " " + Messages.NotFound);
+            }
+
+            return new SuccessDataResult<Car>(result);
         }
 
         public IResult DeleteById(int id)

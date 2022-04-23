@@ -10,3 +10,6 @@ C:\Users\nadbi\RiderProjects\ReCapProject\Core\obj\Debug\net5.0\Core.csproj.Core
 C:\Users\nadbi\RiderProjects\ReCapProject\Core\obj\Debug\net5.0\Core.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\Core\obj\Debug\net5.0\ref\Core.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\Core\obj\Debug\net5.0\Core.pdb
+C:\Users\nadbi\RiderProjects\ReCapProject\Core\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\Core\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\nadbi\RiderProjects\ReCapProject\Core\obj\Debug\net5.0\Core.csproj.CopyComplete
