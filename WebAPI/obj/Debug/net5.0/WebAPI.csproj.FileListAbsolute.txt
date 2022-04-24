@@ -144,3 +144,7 @@ C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

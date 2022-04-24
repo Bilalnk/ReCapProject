@@ -68,7 +68,7 @@ namespace Business.Concrete
             var result = _userDal.GetClaims(user);
             if (result.Count == 0)
             {
-                return new ErrorDataResult<List<OperationClaim>>(Messages.NoData);
+                return new ErrorDataResult<List<OperationClaim>>(Messages.NoData, result);
             }
 
             return new SuccessDataResult<List<OperationClaim>>(result);
