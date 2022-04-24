@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -62,6 +63,30 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(Messages.Updated);
         }
 
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            var result = _userDal.GetClaims(user);
+            if (result.Count == 0)
+            {
+                return new ErrorDataResult<List<OperationClaim>>(Messages.NoData, result);
+            }
+
+            return new SuccessDataResult<List<OperationClaim>>(result);
+        }
+
+        public IDataResult<User> GetByEmail(string email)
+        {
+            var result = _userDal.Get(user => user.Email == email);
+
+            if (result == null)
+            {
+                return new ErrorDataResult<User>(Messages.NotFound);
+            }
+
+            return new SuccessDataResult<User>(result);
+        }
+
+
         private User IsUserExist(int id)
         {
             var result = _userDal.Get(car => car.Id == id);
@@ -77,7 +102,7 @@ namespace Business.Concrete
                    && !user.FirstName.Equals("")
                    && !user.LastName.Equals(null)
                    && !user.LastName.Equals("")
-                   && user.Password.Length >= 6
+                   //&& user.Password.Length >= 6
                    && emailVerify(user.Email);
         }
 
