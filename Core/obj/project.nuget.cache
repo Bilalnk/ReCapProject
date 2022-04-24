@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NGvTMWKLfXX88L3Fee2cIlAX8WqwD7FAx9vZmrVRQQN0BVcey78N1sPhEO/xG6VURJhW1wv0TDj6fX8EPxq+iQ==",
+  "dgSpecHash": "bPqRRJhe1c8Oaa5u+ecK9RsKd+ehm/FzFZv99ZYypPklI/u4J9D1SweBhxF4gAk20a/DCkJ6pqEAYDND8op9yw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nadbi\\RiderProjects\\ReCapProject\\Core\\Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

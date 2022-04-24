@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.BusinnessAspects.AutoFact;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -51,6 +52,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
+        [SecuredOperation("car.ad, admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {

@@ -143,3 +143,4 @@ C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extens
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

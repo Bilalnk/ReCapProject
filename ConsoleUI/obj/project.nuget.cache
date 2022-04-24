@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "DhrhIqkgnTNrjaOpFweVrPneKhuKVV67s+6eML2lePocwlZYLCGcS/5QNHL8O/sR5zZ0eOKZdjc4o55jTejJgA==",
+  "dgSpecHash": "UKRB3tIvkp3i4IBxHcw6jTqWwRZmRkdxRlH7nGZ6bfCM02gKLS18EocNanjIeeomlGHeRbcpxdZzvgLhzIhpyA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nadbi\\RiderProjects\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nadbi\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
+    "C:\\Users\\nadbi\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\nadbi\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",

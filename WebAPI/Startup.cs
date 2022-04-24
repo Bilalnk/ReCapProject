@@ -1,3 +1,4 @@
+using Core.Utilities.Security.JWT;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,26 +20,10 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddSingleton<ICarService, CarManager>();
-            // services.AddSingleton<ICarDal, EfCarDal>();
-            //
-            // services.AddSingleton<IBrandService, BrandManager>();
-            // services.AddSingleton<IBrandDal, EfBrandDal>();
-            //
-            // services.AddSingleton<IColorService, ColorManager>();
-            // services.AddSingleton<IColorDal, EfColorDal>();
-            //
-            // services.AddSingleton<IUserService, UserManager>();
-            // services.AddSingleton<IUserDal, EfUserDal>();
-            //
-            // services.AddSingleton<ICustomerService, CustomerManager>();
-            // services.AddSingleton<ICustomerDal, EfCustomerDal>();
-            //
-            // services.AddSingleton<IRentalService, RentalManager>();
-            // services.AddSingleton<IRentalDal, EfRentalDal>();
-
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebAPI", Version = "v1"}); });
+
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
