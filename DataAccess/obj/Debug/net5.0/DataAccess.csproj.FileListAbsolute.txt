@@ -15,5 +15,3 @@ C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess
 C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.pdb
-C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\nadbi\RiderProjects\ReCapProject\DataAccess\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.xml

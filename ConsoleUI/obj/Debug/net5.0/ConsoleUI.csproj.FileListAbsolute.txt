@@ -79,3 +79,5 @@ C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.A
 C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.WebUtilities.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.ObjectPool.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Net.Http.Headers.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\nadbi\RiderProjects\ReCapProject\ConsoleUI\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

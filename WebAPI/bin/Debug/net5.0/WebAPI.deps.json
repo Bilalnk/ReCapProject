@@ -2366,7 +2366,8 @@
           "DataAccess": "1.0.0",
           "Entities": "1.0.0",
           "FluentValidation": "10.4.0",
-          "Microsoft.AspNetCore.Http": "2.2.2"
+          "Microsoft.AspNetCore.Http": "2.2.2",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
         "runtime": {
           "Business.dll": {}
@@ -2382,6 +2383,8 @@
           "Autofac.Extras.DynamicProxy": "6.0.1",
           "Castle.Core": "4.4.1",
           "FluentValidation": "10.4.0",
+          "Microsoft.AspNetCore.Http": "2.2.2",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0"
         },

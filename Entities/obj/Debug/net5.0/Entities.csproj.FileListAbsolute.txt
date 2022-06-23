@@ -13,5 +13,3 @@ C:\Users\nadbi\RiderProjects\ReCapProject\Entities\obj\Debug\net5.0\Entities.csp
 C:\Users\nadbi\RiderProjects\ReCapProject\Entities\obj\Debug\net5.0\Entities.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\Entities\obj\Debug\net5.0\ref\Entities.dll
 C:\Users\nadbi\RiderProjects\ReCapProject\Entities\obj\Debug\net5.0\Entities.pdb
-C:\Users\nadbi\RiderProjects\ReCapProject\Entities\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\nadbi\RiderProjects\ReCapProject\Entities\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.xml
